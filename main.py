@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException, status, Depends
+from fastapi.middleware.cors import CORSMiddleware
 import auth # Import our authentication module
 import models # Import our models module
 import task_routes # Import our tasks router
@@ -8,6 +9,16 @@ from typing import Annotated
 from auth import get_current_user # Import the get_current_user dependency
 
 app = FastAPI()
+
+# Configure CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"], # Allows all methods (GET, POST, PUT, DELETE, etc.)
+    allow_headers=["*"], # Allows all headers
+)
+
 # Include the authentication router, making its endpoints available
 app.include_router(auth.router)
 # Include the task router
