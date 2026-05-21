@@ -4,8 +4,8 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
-DB_DIR = os.environ.get("DATABASE_DIR", ".")
-DATABASE_URL = f"sqlite:///{DB_DIR}/taskmanager.db"
+
+DATABASE_URL = f"sqlite:///./taskmanager.db"
 # Create the SQLAlchemy engine
 # connect_args={"check_same_thread": False} is crucial for SQLite
 # It tells SQLite that multiple threads might access the database connection,
