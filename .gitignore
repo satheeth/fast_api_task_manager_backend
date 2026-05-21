@@ -1,0 +1,13 @@
+# Environments
+.env
+.venv
+env/
+venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# SQLite Database (Render provides ephemeral storage for free tier, so DB usually shouldn't be pushed)
+*.db
+*.sqlite3
